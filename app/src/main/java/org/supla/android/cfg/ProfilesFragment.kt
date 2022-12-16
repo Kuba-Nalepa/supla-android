@@ -59,8 +59,17 @@ class ProfilesFragment: Fragment() {
         { 
           uiState ->
               when(uiState) {
-                  is ProfilesUiState.EditProfile -> 
+                  is ProfilesUiState.EditProfile -> {
+                      if(profilesVM.profilesAdapter.itemCount > 3 ) {
+                          android.app.AlertDialog.Builder(requireContext())
+                              .setTitle("Stop")
+                              .setMessage("You cannot add more than 3 accounts")
+                              .setPositiveButton("OK") {_,_ -> }
+                              .show()
+                  } else {
                       openEditProfileView(uiState.profileId)
+                  }
+              }
                   is ProfilesUiState.ListProfiles ->
                       profilesVM.profilesAdapter.reloadData(uiState.profiles)
                   is ProfilesUiState.ProfileActivation ->
