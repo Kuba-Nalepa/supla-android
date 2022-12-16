@@ -248,6 +248,7 @@ public class MenuItemsLayout extends LinearLayout implements View.OnClickListene
         mMainButtonsAreaLayout.removeAllViews();
         buttons.clear();
 
+        addButton(BTN_CLOUD, R.drawable.menu_cloud, R.string.supla_cloud);
         addButton(BTN_PROFILE, R.drawable.profile, hasManyAccounts?R.string.profile_plural:R.string.profile);
         addButton(BTN_SETTINGS, R.drawable.settings, R.string.settings);
         addButton(BTN_ADD_DEVICE, R.drawable.add_device, R.string.add_device);
@@ -256,7 +257,7 @@ public class MenuItemsLayout extends LinearLayout implements View.OnClickListene
         // Google Play Policy
         //addButton(BTN_DONATE, R.drawable.donate, R.string.donate_title);
         addButton(BTN_HELP, R.drawable.help, R.string.help);
-        addButton(BTN_CLOUD, R.drawable.menu_cloud, R.string.supla_cloud);
+
         addFooter();
 
     }
